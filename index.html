@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>don don ziki</title>
+    <link rel="stylesheet" href="./css/output.css" />
+</head>
+<body>
+    <!-- Choose zone -->
+   <section class="" id="chooseZone">
+     <div class="grid grid-cols-3 grid-rows-2">
+        <button>
+            <img class="hand" src="./images/rock.svg" alt="rock">
+        </button>
+        <button>
+            <img class="hand" src="./images/paper.svg" alt="paper">
+        </button>
+        <button class="col-start-1  col-end-3 place-items-center">
+            <img class="hand" src="./images/scissors.svg" alt="scissors">
+        </button>
+    </div>
+   </section>
+   <!-- Status zone -->
+    <section class="hidden" id="statusZone">
+        <div class="flex">
+            <!-- Player -->
+            <img class="player" src="" alt="">
+            <button id="refreshGameButton" class="btn btn-accent">Refresh game</button>
+            <div role="alert" class="alert alert-success">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span id="statusText">Your purchase has been confirmed!</span>
+</div>
+            <!-- AI -->
+             <img class="ai" src="./images/oval.svg" alt="oval">
+        </div>
+    </section>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
