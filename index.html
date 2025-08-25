@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>don don ziki</title>
-    <link rel="stylesheet" href="./css/output.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>don don ziki</title>
+  <link rel="stylesheet" href="./css/output.css" />
 </head>
-<body>
-    <!-- Choose zone -->
-   <section class="" id="chooseZone">
-     <div class="grid grid-cols-3 grid-rows-2">
-        <button>
-            <img class="hand" src="./images/rock.svg" alt="rock">
-        </button>
-        <button>
-            <img class="hand" src="./images/paper.svg" alt="paper">
-        </button>
-        <button class="col-start-1  col-end-3 place-items-center">
-            <img class="hand" src="./images/scissors.svg" alt="scissors">
-        </button>
+<body class="bg-base-200 min-h-screen flex flex-col items-center justify-center">
+
+  <!-- Score -->
+  <header class="flex items-center justify-between w-full max-w-3xl p-4">
+   
+    <div class="flex items-center gap-4">
+      <div class="stat bg-base-100 shadow rounded-xl p-2">
+        <div class="stat-title">Score</div>
+        <div id="score" class="stat-value text-primary">0</div>
+  </header>
+
+  <!-- Choose zone -->
+  <section class="flex justify-center" id="chooseZone">
+    <div class="grid grid-cols-2 grid-rows-2 w-full max-w-500px gap-x-20 gap-y-6" id="zoneGrid">
+      <button>
+        <img class="hand" src="./images/rock.svg" alt="rock" width="150px" height="150px">
+      </button>
+      <button>
+        <img class="hand" src="./images/paper.svg" alt="paper" width="150px" height="150px">
+      </button>
+      <button class="col-start-1 col-end-3 place-items-center">
+        <img class="hand" src="./images/scissors.svg" alt="scissors" width="150px" height="150px">
+      </button>
+      <button>
+        <img class="hand mode-hard hidden" src="./images/lizard.svg" alt="lizard" width="150px" height="150px">
+      </button>
+      <button>
+        <img class="hand mode-hard hidden" src="./images/spock.svg" alt="spock" width="150px" height="150px">
+      </button>
     </div>
-   </section>
-   <!-- Status zone -->
-    <section class="hidden" id="statusZone">
-        <div class="flex">
-            <!-- Player -->
-            <img class="player" src="" alt="">
-            <button id="refreshGameButton" class="btn btn-accent">Refresh game</button>
-            <div role="alert" class="alert alert-success">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-  <span id="statusText">Your purchase has been confirmed!</span>
-</div>
-            <!-- AI -->
-             <img class="ai" src="./images/oval.svg" alt="oval">
-        </div>
-    </section>
-    <script type="module" src="./js/main.js"></script>
+  </section>
+
+  <!-- Status zone -->
+  <section class="hidden mt-10" id="statusZone">
+    <div class="flex items-center gap-6">
+      <!-- Player -->
+      <div class="flex flex-col items-center">
+        <span class="font-semibold">You</span>
+        <img class="player w-[150px] h-[150px]" src="" alt="">
+      </div>
+
+      <!-- Status -->
+      <div class="flex flex-col items-center gap-4">
+        <span id="statusText" class="text-3xl font-bold">Waiting...</span>
+        <button id="refreshGameButton" class="btn btn-accent">Play Again</button>
+      </div>
+
+      <!-- AI -->
+      <div class="flex flex-col items-center">
+        <span class="font-semibold">AI</span>
+        <img class="ai w-[150px] h-[150px]" src="./images/oval.svg" alt="oval">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mode changer -->
+  <button class="btn btn-info absolute bottom-5 right-5" id="modeChenger">Easy mode</button>
+  <button class="btn btn-outline absolute bottom-20 right-5 " onclick="rules_modal.showModal()">Relus</button>
+
+  <!-- Rules Modal -->
+  <dialog id="rules_modal" class="modal">
+    <form method="dialog" class="modal-box">
+      <h3 class="font-bold text-lg">Rules</h3>
+      <img src="./images/rules-uch.svg" alt="">
+      <div class="modal-action">
+        <button class="btn">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
